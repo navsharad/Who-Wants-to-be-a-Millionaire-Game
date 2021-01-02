@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(32,73,128);
+    background: linear-gradient(180deg, rgba(32,73,128,1) 55%, rgba(253,228,29,1) 100%);
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#header {
+    margin-top: 50px;
+    font-size: 70px;
+    color: white;
+}
+
+.game-container {
+    height: 100vh;
+    width: 1500px;
+    max-width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+}
+
+.card {
+    height: 600px;
+    position: relative;
+    background-color: white;
+    padding: 100px;
+    border-radius: 20px;
+    box-shadow: 0 0 12px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+.btn {
+    border-radius: 20px;
+    border: 1px solid grey;
+    background-color: lightblue;
+    padding: 30px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.btn:hover {
+    border: 1px solid black;
+}
+
+
+.question {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 300px 300px;
+}
+
+/* Side Card */
+
+.side-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.winnings {
+    position: absolute;
+    height: 100px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.winnings p {
+    font-size: 80px;
+}
+
+.lifeline-container {
+    display: flex;
+}
+
+.lifeline {
+    background-color: lightblue;
+    border-radius: 50px;
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+}
+
+
+
+.quit {
+    position: absolute;
+    bottom: 30px;
+}
+
+/* centers the start button before beginning game */
+.start-styling {
+    justify-content: center;
+}
+
+/* Modal */
+
+.modal-bg {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: white;
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* classes to be used with javascript */
+ .hide {
+    display: none;
+}
+
+
+
+
+

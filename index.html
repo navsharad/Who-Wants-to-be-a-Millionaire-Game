@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Wants to be a Millionaire</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 id="header">Who Wants to be a Millionaire</h1>
+        <div class="game-container start-styling">
+            <!-- Card for questions and answers -->
+            <div class="main-card card">
+                <div class="question hide">Question</div>
+                <div class="answers hide">
+                    <button class="answer btn">Answer 1</button>
+                    <button class="answer btn">Answer 2</button>
+                    <button class="answer btn">Answer 3</button>
+                    <button class="answer btn">Answer 4</button>
+                </div>
+                <div class="controls start">
+                    <button class="start-btn btn">Start</button>
+                    <button class="next-btn btn hide">Next</button>
+                </div>
+            </div>
+            <!-- Card for current winnings, lifelines, and walking away with current winnings -->
+            <div class="side-card card hide">
+                <div class="winnings">
+                    <h1>Current Winnings</h1>
+                    <p>$0</p>
+                </div>
+                <div class="lifeline-container">
+                    <div class="lifeline lifeline1 btn">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="lifeline lifeline2 btn">
+                        50%
+                    </div>
+                    <div class="lifeline lifeline3 btn">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                <button class="quit btn">Walk Away With Winnings</button>
+            </div>
+
+        </div>
+
+        <div class="modal-bg hide">
+            <div class="modal card">
+                <h1>You won, congrats!</h1>
+                <p>Thanks for playing.</p>
+                <button class="restart-btn btn">Restart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
