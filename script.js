@@ -2,7 +2,7 @@ const startButton = document.querySelector('.start-btn');
 const nextButton = document.querySelector('.next-btn');
 const gameContainer = document.querySelector('.start-styling');
 const questionElement = document.querySelector('.question');
-const answerElementArray = document.getElementsByClassName('answer');
+const answerElementArray = document.querySelectorAll('.answer');
 const answersContainer = document.querySelector('.answers');
 const quitButton = document.querySelector('.quit');
 const header = document.querySelector('#header');
@@ -29,31 +29,6 @@ function startGame() {
     modalContainer.classList.add('hide');
     fetchQuestion();
 }
-
-// end game modals
-
-function winGame() {
-   modalContainer.classList.remove('hide');
-   modal.children[0].innerHTML = 'Congrats, you won $1,000,000';
-   modal.children[1].innerHTML = 'Thanks for playing.';
-   restartGame();
-
-}
-function endGame() {
-    modalContainer.classList.remove('hide');
-    modal.children[0].innerHTML = 'You walk away with $' + winnings;
-    modal.children[1].innerHTML = 'Thanks for playing.';
-    restartGame();
-}
-
-function loseGame() {
-    modalContainer.classList.remove('hide');
-    modal.children[0].innerHTML = 'You lost!';
-    modal.children[1].innerHTML = 'Better luck next time.';
-    restartGame();
-
-}
-
 
 function fetchQuestion() {
     nextButton.classList.add('hide');
@@ -99,29 +74,54 @@ function fetchQuestion() {
         winGame();
     }
 
-        answersContainer.addEventListener('click', (e) => {
-            Array.from(answerElementArray).forEach(element => {
-                if (element.classList.contains('correct')) {
-                    element.style.backgroundColor = 'green';
-                } else {
-                    element.style.backgroundColor = 'red';
-                }
-            })
-
-            if(e.target.classList.contains('correct')) {
+    answerElementArray.forEach(element => {
+        element.addEventListener('click', () => {
+            if (element.classList.contains('correct')) {
+                element.style.backgroundColor = 'green';
+            } else {
+                element.style.backgroundColor = 'red';
+            }
+            
+            if (element.classList.contains('correct')) {
                 winnings = winnings + questionWorth;
+                console.log('this was correct')
                 winningsContainer.children[1].innerHTML = '$' + winnings;
                 header.innerHTML = 'Congrats, you are correct!';
                 nextButton.classList.remove('hide');
-                next();
+                element.classList.remove('correct');
             } else {
                 header.innerHTML = 'You are incorrect, you lose!';
                 loseGame();
             }
-        });
-
+        })
+        next();
+    })
         arrayIndexCounter++;
 }
+
+// end game modals
+
+function winGame() {
+    modalContainer.classList.remove('hide');
+    modal.children[0].innerHTML = 'Congrats, you won $1,000,000';
+    modal.children[1].innerHTML = 'Thanks for playing.';
+    restartGame();
+ 
+ }
+ function endGame() {
+     modalContainer.classList.remove('hide');
+     modal.children[0].innerHTML = 'You walk away with $' + winnings;
+     modal.children[1].innerHTML = 'Thanks for playing.';
+     restartGame();
+ }
+ 
+ function loseGame() {
+     modalContainer.classList.remove('hide');
+     modal.children[0].innerHTML = 'You lost!';
+     modal.children[1].innerHTML = 'Better luck next time.';
+     restartGame();
+ 
+ }
 
 function next() {
     nextButton.addEventListener('click', () => {
@@ -147,6 +147,7 @@ function restartGame() {
         winningsContainer.children[1].innerHTML = '$0';
         winnings = 0;
         arrayIndexCounter = 0;
+        console.log('winnings in restartGame()' + winnings + questionWorth)
         fetchQuestion();
     })
     //when lifelines are implemented, reset those too

@@ -76,6 +76,10 @@ body {
     grid-template-columns: 300px 300px;
 }
 
+.answer {
+    outline: none;
+}
+
 /* Side Card */
 
 .side-card {
